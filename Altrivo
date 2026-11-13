@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Altrivo – programmatic för iGaming, finans och fler branscher</title>
+<meta name="description" content="Altrivo planerar, köper och optimerar programmatic – display, kontextuellt, native, DOOH, CTV och print – med spetskompetens inom iGaming och finans.">
+<meta property="og:title" content="Altrivo – programmatic för iGaming, finans och fler branscher">
+<meta property="og:description" content="Display, kontextuellt, native, DOOH, CTV och print. Compliance inbyggt från första budet.">
+<meta property="og:url" content="https://altrivo.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='3' y='14' width='5' height='11' rx='1.5' fill='%239B7BFF'/%3E%3Crect x='11.5' y='8' width='5' height='17' rx='1.5' fill='%2335F2C2'/%3E%3Crect x='20' y='3' width='5' height='22' rx='1.5' fill='%23EEF1F7'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#07090F}
+a{color:#35F2C2}a:hover{color:#8CFFE0}
+html{scroll-behavior:smooth}
+button{font:inherit;cursor:pointer}
+.fld{font:inherit;font-size:16px;padding:12px 14px;border:1px solid #2A3346;border-radius:12px;background:#0B0F18;color:#EEF1F7;min-height:48px;box-sizing:border-box;width:100%}
+.fld:focus{outline:2px solid #35F2C2;outline-offset:1px;border-color:#35F2C2}
+.fld option{background:#0B0F18;color:#EEF1F7}
+input[type=range]{width:100%;accent-color:#35F2C2;min-height:44px}
+.gridbg{background-image:linear-gradient(rgba(53,242,194,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(53,242,194,.07) 1px,transparent 1px);background-size:64px 64px;animation:gridpan 6s linear infinite}
+.card{transition:border-color .25s,transform .25s,box-shadow .25s}
+.card:hover{border-color:#35F2C2;transform:translateY(-4px);box-shadow:0 0 0 1px rgba(53,242,194,.25),0 18px 40px -18px rgba(53,242,194,.35)}
+.glowtxt{text-shadow:0 0 24px rgba(53,242,194,.45)}
+.an-float{animation:floaty 7s ease-in-out infinite}
+.an-float2{animation:floaty 9s ease-in-out infinite reverse}
+.an-spin{animation:spin 18s linear infinite}
+.an-orb{animation:orb 16s ease-in-out infinite alternate}
+.an-pulse{animation:pulse 1.6s ease-in-out infinite}
+.an-marquee{animation:marquee 32s linear infinite}
+.an-bids{animation:bids 16s linear infinite}
+.an-reel1{animation:reel 3.2s cubic-bezier(.2,.7,.2,1) infinite}
+.an-reel2{animation:reel 3.6s cubic-bezier(.2,.7,.2,1) infinite}
+.an-reel3{animation:reel 4s cubic-bezier(.2,.7,.2,1) infinite}
+.candle{transform-box:fill-box;transform-origin:50% 100%;animation:grow 2.4s ease-in-out infinite alternate}
+.trend{stroke-dasharray:420;stroke-dashoffset:420;animation:draw 5s ease-in-out infinite}
+.scan{animation:scan 5s linear infinite}
+@keyframes gridpan{to{background-position:0 64px,64px 0}}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(8deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes orb{0%{transform:translate(0,0) scale(1)}100%{transform:translate(80px,40px) scale(1.15)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes bids{to{transform:translateY(-50%)}}
+@keyframes reel{0%{transform:translateY(0)}65%{transform:translateY(-50%)}100%{transform:translateY(-50%)}}
+@keyframes grow{0%{transform:scaleY(.55)}100%{transform:scaleY(1)}}
+@keyframes draw{0%{stroke-dashoffset:420}60%,100%{stroke-dashoffset:0}}
+@keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(1200%)}}
+.still *,.still{animation:none !important;transition:none !important}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+
+[hidden]{display:none !important}
+*{box-sizing:border-box}
+</style>
+</head>
+<body>
+<div class="root" style="font-family: Inter, system-ui, sans-serif; color: #EEF1F7; background: #07090F; width: 100%; min-height: 100vh">
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 20; background: rgba(7,9,15,.82); backdrop-filter: blur(12px); border-bottom: 1px solid #1A2130">
+<nav style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px" aria-label="Huvudmeny">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; color: #EEF1F7; text-decoration: none">
+<svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="14" width="5" height="11" rx="1.5" fill="#9B7BFF"></rect><rect x="11.5" y="8" width="5" height="17" rx="1.5" fill="#35F2C2"></rect><rect x="20" y="3" width="5" height="22" rx="1.5" fill="#EEF1F7"></rect></svg>
+<span style="font-family: Unbounded, sans-serif; font-weight: 600; font-size: 20px; letter-spacing: -0.01em">Altrivo</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 26px; font-size: 15px">
+<a href="#kanaler" style="color: #B7BFCE; text-decoration: none; padding: 10px 0">Kanaler</a>
+<a href="#tjanster" style="color: #B7BFCE; text-decoration: none; padding: 10px 0">Tjänster</a>
+<a href="#vertikaler" style="color: #B7BFCE; text-decoration: none; padding: 10px 0">Branscher</a>
+<a href="#kalkyl" style="color: #B7BFCE; text-decoration: none; padding: 10px 0">Räkneexempel</a>
+<a href="#team" style="color: #B7BFCE; text-decoration: none; padding: 10px 0">Teamet</a>
+<a href="#kontakt" style="background: #35F2C2; color: #07090F; text-decoration: none; padding: 12px 20px; border-radius: 999px; font-weight: 600">Boka ett möte</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="top" style="position: relative; overflow: hidden; border-bottom: 1px solid #1A2130">
+<div class="gridbg" aria-hidden="true" style="position: absolute; inset: 0"></div>
+<div class="an-orb" aria-hidden="true" style="position: absolute; width: 520px; height: 520px; left: -160px; top: -180px; border-radius: 999px; background: #35F2C2; opacity: .14; filter: blur(120px)"></div>
+<div class="an-orb" aria-hidden="true" style="position: absolute; width: 480px; height: 480px; right: -140px; bottom: -200px; border-radius: 999px; background: #9B7BFF; opacity: .18; filter: blur(120px)"></div>
+
+<!-- floating decor -->
+<div class="an-float" aria-hidden="true" style="position: absolute; left: 4%; bottom: 10%; opacity: .75">
+<svg width="74" height="74" viewBox="0 0 74 74"><g class="an-spin" style="transform-origin: 37px 37px"><circle cx="37" cy="37" r="34" fill="#141A28" stroke="#FFC857" stroke-width="3"></circle><circle cx="37" cy="37" r="26" fill="none" stroke="#FFC857" stroke-width="6" stroke-dasharray="10 9"></circle><circle cx="37" cy="37" r="15" fill="#FFC857"></circle><circle cx="37" cy="37" r="11" fill="#141A28"></circle></g></svg>
+</div>
+<div class="an-float2" aria-hidden="true" style="position: absolute; left: 44%; top: 7%; opacity: .7">
+<svg width="58" height="58" viewBox="0 0 58 58"><circle cx="29" cy="29" r="26" fill="#141A28" stroke="#9B7BFF" stroke-width="3"></circle><text x="29" y="38" text-anchor="middle" font-family="Unbounded, sans-serif" font-size="24" font-weight="700" fill="#9B7BFF">₿</text></svg>
+</div>
+<div class="an-float" aria-hidden="true" style="position: absolute; right: 3%; top: 9%; opacity: .6">
+<svg width="56" height="56" viewBox="0 0 56 56"><rect x="4" y="4" width="48" height="48" rx="11" fill="#141A28" stroke="#EEF1F7" stroke-width="2.5"></rect><circle cx="17" cy="17" r="4.5" fill="#EEF1F7"></circle><circle cx="28" cy="28" r="4.5" fill="#EEF1F7"></circle><circle cx="39" cy="39" r="4.5" fill="#EEF1F7"></circle></svg>
+</div>
+
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 96px 24px 104px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 999 1 520px; min-width: 0">
+<p style="margin: 0 0 22px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid #263046; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #B7BFCE; background: rgba(14,18,28,.7)"><span class="an-pulse" style="width: 8px; height: 8px; border-radius: 999px; background: #35F2C2; display: inline-block"></span>Programmatic · iGaming · Finans · Fler branscher</p>
+<h1 style="margin: 0 0 26px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(36px, 4.6vw, 62px); line-height: 1.08; letter-spacing: -0.03em">Programmatic byggt för branscher där <span class="glowtxt" style="color: #35F2C2">varje bud räknas.</span></h1>
+<p style="margin: 0 0 38px; font-size: 19px; line-height: 1.6; color: #B7BFCE; max-width: 600px">Tre säljare med över tio års erfarenhet. Vi planerar, köper och optimerar display, kontextuellt, native, DOOH, CTV och print – med spetskompetens inom iGaming och finans, där compliance är inbyggt från första budet. Och vi kör gärna för andra branscher också.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#kontakt" style="background: #35F2C2; color: #07090F; text-decoration: none; padding: 16px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; box-shadow: 0 0 32px -6px #35F2C2">Boka ett introduktionsmöte</a>
+<a href="#vertikaler" style="color: #EEF1F7; text-decoration: none; padding: 15px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; border: 1px solid #2E3850; background: rgba(14,18,28,.6)">Se hur vi jobbar</a>
+</div>
+</div>
+
+<!-- CONSOLE -->
+<div style="flex: 1 1 400px; min-width: 0; position: relative; background: rgba(14,18,28,.88); border: 1px solid #222B3E; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 30px 80px -30px rgba(0,0,0,.8)">
+<div style="display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3B5">
+<span style="display: flex; align-items: center; gap: 8px"><span class="an-pulse" style="width: 8px; height: 8px; border-radius: 999px; background: #FF5D73; display: inline-block"></span>RTB-KONSOL</span>
+<span>illustration</span>
+</div>
+
+<!-- Finance chart -->
+<div style="position: relative; background: #0A0D15; border: 1px solid #1C2434; border-radius: 14px; padding: 14px; overflow: hidden">
+<p style="margin: 0 0 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3B5">FINANS · KONVERTERINGAR</p>
+<svg viewBox="0 0 360 140" width="100%" height="140" role="img" aria-label="Animerat stapeldiagram som illustrerar stigande konverteringar">
+<g stroke="#1C2434" stroke-width="1"><line x1="0" y1="35" x2="360" y2="35"></line><line x1="0" y1="70" x2="360" y2="70"></line><line x1="0" y1="105" x2="360" y2="105"></line></g>
+<g stroke-width="1.5">
+<line x1="19" y1="88" x2="19" y2="126" stroke="#35F2C2"></line><rect class="candle" style="animation-delay: 0s" x="12" y="96" width="14" height="24" rx="2" fill="#35F2C2"></rect>
+<line x1="47" y1="80" x2="47" y2="110" stroke="#FF5D73"></line><rect class="candle" style="animation-delay: .2s" x="40" y="88" width="14" height="16" rx="2" fill="#FF5D73"></rect>
+<line x1="75" y1="72" x2="75" y2="112" stroke="#35F2C2"></line><rect class="candle" style="animation-delay: .4s" x="68" y="80" width="14" height="26" rx="2" fill="#35F2C2"></rect>
+<line x1="103" y1="76" x2="103" y2="102" stroke="#FF5D73"></line><rect class="candle" style="animation-delay: .6s" x="96" y="84" width="14" height="12" rx="2" fill="#FF5D73"></rect>
+<line x1="131" y1="58" x2="131" y2="96" stroke="#35F2C2"></line><rect class="candle" style="animation-delay: .8s" x="124" y="66" width="14" height="24" rx="2" fill="#35F2C2"></rect>
+<line x1="159" y1="62" x2="159" y2="90" stroke="#FF5D73"></line><rect class="candle" style="animation-delay: 1s" x="152" y="70" width="14" height="14" rx="2" fill="#FF5D73"></rect>
+<line x1="187" y1="46" x2="187" y2="82" stroke="#35F2C2"></line><rect class="candle" style="animation-delay: 1.2s" x="180" y="54" width="14" height="22" rx="2" fill="#35F2C2"></rect>
+<line x1="215" y1="50" x2="215" y2="76" stroke="#FF5D73"></line><rect class="candle" style="animation-delay: 1.4s" x="208" y="58" width="14" height="12" rx="2" fill="#FF5D73"></rect>
+<line x1="243" y1="32" x2="243" y2="70" stroke="#35F2C2"></line><rect class="candle" style="animation-delay: 1.6s" x="236" y="40" width="14" height="24" rx="2" fill="#35F2C2"></rect>
+<line x1="271" y1="36" x2="271" y2="62" stroke="#FF5D73"></line><rect class="candle" style="animation-delay: 1.8s" x="264" y="44" width="14" height="12" rx="2" fill="#FF5D73"></rect>
+<line x1="299" y1="20" x2="299" y2="56" stroke="#35F2C2"></line><rect class="candle" style="animation-delay: 2s" x="292" y="28" width="14" height="22" rx="2" fill="#35F2C2"></rect>
+<line x1="327" y1="10" x2="327" y2="44" stroke="#35F2C2"></line><rect class="candle" style="animation-delay: 2.2s" x="320" y="18" width="14" height="20" rx="2" fill="#35F2C2"></rect>
+</g>
+<path class="trend" d="M19 100 L47 96 L75 82 L103 92 L131 70 L159 80 L187 58 L215 66 L243 44 L271 52 L299 32 L327 22" fill="none" stroke="#9B7BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<div class="scan" aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 18px; background: linear-gradient(rgba(53,242,194,0), rgba(53,242,194,.12), rgba(53,242,194,0))"></div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<!-- iGaming reels -->
+<div style="flex: 1 1 150px; background: #0A0D15; border: 1px solid #1C2434; border-radius: 14px; padding: 14px">
+<p style="margin: 0 0 10px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3B5">IGAMING · FTD</p>
+<div aria-hidden="true" style="display: flex; gap: 6px; justify-content: space-between">
+<div style="flex: 1; height: 64px; overflow: hidden; border-radius: 10px; background: #141A28; border: 1px solid #263046">
+<div class="an-reel1" style="display: flex; flex-direction: column">
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 26px; color: #FFC857">7</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #9B7BFF">★</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 14px; color: #35F2C2">BAR</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #FF5D73">♦</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 26px; color: #FFC857">7</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #9B7BFF">★</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 14px; color: #35F2C2">BAR</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #FF5D73">♦</span>
+</div>
+</div>
+<div style="flex: 1; height: 64px; overflow: hidden; border-radius: 10px; background: #141A28; border: 1px solid #263046">
+<div class="an-reel2" style="display: flex; flex-direction: column">
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #9B7BFF">★</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #FF5D73">♦</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 26px; color: #FFC857">7</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 14px; color: #35F2C2">BAR</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #9B7BFF">★</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #FF5D73">♦</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 26px; color: #FFC857">7</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 14px; color: #35F2C2">BAR</span>
+</div>
+</div>
+<div style="flex: 1; height: 64px; overflow: hidden; border-radius: 10px; background: #141A28; border: 1px solid #263046">
+<div class="an-reel3" style="display: flex; flex-direction: column">
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 14px; color: #35F2C2">BAR</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 26px; color: #FFC857">7</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #FF5D73">♦</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #9B7BFF">★</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 14px; color: #35F2C2">BAR</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 26px; color: #FFC857">7</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #FF5D73">♦</span>
+<span style="height: 64px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #9B7BFF">★</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Bid stream -->
+<div style="flex: 1.4 1 200px; min-width: 0; background: #0A0D15; border: 1px solid #1C2434; border-radius: 14px; padding: 14px">
+<p style="margin: 0 0 10px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3B5">BUDSTRÖM · FILTER PÅ</p>
+<div style="height: 132px; overflow: hidden; position: relative">
+<div class="an-bids" style="display: flex; flex-direction: column">
+<div data-for="bids" style="display: contents"></div>
+</div>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 36px; background: linear-gradient(rgba(10,13,21,0), #0A0D15)"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MARQUEE -->
+<section aria-label="Branscher vi arbetar med" style="border-bottom: 1px solid #1A2130; overflow: hidden; background: #0A0D15">
+<div class="an-marquee" style="display: flex; width: max-content; padding: 22px 0">
+<div data-for="marquee" style="display: contents"></div>
+</div>
+</section>
+
+<!-- LOGOS -->
+<section aria-label="Kunder" style="border-bottom: 1px solid #1A2130">
+<div style="max-width: 1240px; margin: 0 auto; padding: 30px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9AA3B5">ERFARENHET FRÅN KAMPANJER FÖR</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<span style="padding: 10px 18px; border: 1px dashed #364056; border-radius: 10px; font-size: 14px; color: #9AA3B5">[KUNDLOGGA]</span>
+<span style="padding: 10px 18px; border: 1px dashed #364056; border-radius: 10px; font-size: 14px; color: #9AA3B5">[KUNDLOGGA]</span>
+<span style="padding: 10px 18px; border: 1px dashed #364056; border-radius: 10px; font-size: 14px; color: #9AA3B5">[KUNDLOGGA]</span>
+<span style="padding: 10px 18px; border: 1px dashed #364056; border-radius: 10px; font-size: 14px; color: #9AA3B5">[KUNDLOGGA]</span>
+<span style="padding: 10px 18px; border: 1px dashed #364056; border-radius: 10px; font-size: 14px; color: #9AA3B5">[KUNDLOGGA]</span>
+</div>
+</div>
+</section>
+
+<!-- KANALER -->
+<section id="kanaler" style="max-width: 1240px; margin: 0 auto; padding: 104px 24px 24px">
+<p style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #35F2C2">// KANALER</p>
+<h2 style="margin: 0 0 18px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em; max-width: 820px">Sex kanaler. En plan. En kontaktperson.</h2>
+<p style="margin: 0 0 52px; font-size: 18px; line-height: 1.6; color: #B7BFCE; max-width: 680px">Vi kombinerar digitalt, utomhus, tv och tryck i samma mediaplan – så att budgeten hamnar där den gör mest nytta.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px">
+
+<div class="card" style="background: #0E121C; border: 1px solid #1E2535; border-radius: 18px; padding: 26px; display: flex; gap: 18px; align-items: flex-start">
+<div style="flex: none; width: 52px; height: 52px; border-radius: 14px; border: 1px solid #2A3346; background: #121826; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#35F2C2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path><rect x="6" y="7" width="7" height="6" rx="1"></rect></svg>
+</div>
+<div>
+<h3 style="margin: 0 0 8px; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 18px">Display</h3>
+<p style="margin: 0; line-height: 1.6; color: #B7BFCE">Banners på premiumsajter och nätverk – för både räckvidd och konvertering, med retargeting och lookalikes.</p>
+</div>
+</div>
+
+<div class="card" style="background: #0E121C; border: 1px solid #1E2535; border-radius: 18px; padding: 26px; display: flex; gap: 18px; align-items: flex-start">
+<div style="flex: none; width: 52px; height: 52px; border-radius: 14px; border: 1px solid #2A3346; background: #121826; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#35F2C2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10M4 8h8M4 12h6"></path><circle cx="16" cy="16" r="5"></circle><circle cx="16" cy="16" r="1.5"></circle></svg>
+</div>
+<div>
+<h3 style="margin: 0 0 8px; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 18px">Kontextuellt</h3>
+<p style="margin: 0; line-height: 1.6; color: #B7BFCE">Annonser bredvid innehåll som matchar – ekonominyheter för finans, sport för sportsbook. Fungerar utan cookies.</p>
+</div>
+</div>
+
+<div class="card" style="background: #0E121C; border: 1px solid #1E2535; border-radius: 18px; padding: 26px; display: flex; gap: 18px; align-items: flex-start">
+<div style="flex: none; width: 52px; height: 52px; border-radius: 14px; border: 1px solid #2A3346; background: #121826; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#35F2C2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><rect x="6" y="6" width="12" height="6" rx="1"></rect><path d="M6 15h12M6 18h8"></path></svg>
+</div>
+<div>
+<h3 style="margin: 0 0 8px; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 18px">Native</h3>
+<p style="margin: 0; line-height: 1.6; color: #B7BFCE">Annonser som följer sajtens form och känsla, i redaktionella miljöer – bra för budskap som behöver lite mer plats.</p>
+</div>
+</div>
+
+<div class="card" style="background: #0E121C; border: 1px solid #1E2535; border-radius: 18px; padding: 26px; display: flex; gap: 18px; align-items: flex-start">
+<div style="flex: none; width: 52px; height: 52px; border-radius: 14px; border: 1px solid #2A3346; background: #121826; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9B7BFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="11" rx="1.5"></rect><path d="M8 14v7M16 14v7M6 21h12"></path><path d="M7 7h6M7 10h10"></path></svg>
+</div>
+<div>
+<h3 style="margin: 0 0 8px; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 18px">DOOH</h3>
+<p style="margin: 0; line-height: 1.6; color: #B7BFCE">Digitala skärmar i city, köpcentrum, kollektivtrafik och på flygplatser – köpta programmatiskt per tid, plats och väder.</p>
+</div>
+</div>
+
+<div class="card" style="background: #0E121C; border: 1px solid #1E2535; border-radius: 18px; padding: 26px; display: flex; gap: 18px; align-items: flex-start">
+<div style="flex: none; width: 52px; height: 52px; border-radius: 14px; border: 1px solid #2A3346; background: #121826; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9B7BFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"></rect><path d="m8 2 4 4 4-4"></path><path d="m10 10 5 2.5-5 2.5z"></path></svg>
+</div>
+<div>
+<h3 style="margin: 0 0 8px; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 18px">CTV</h3>
+<p style="margin: 0; line-height: 1.6; color: #B7BFCE">Reklamfilm på uppkopplade tv-apparater och streamingtjänster – tv-känsla med samma målstyrning och mätning som online.</p>
+</div>
+</div>
+
+<div class="card" style="background: #0E121C; border: 1px solid #1E2535; border-radius: 18px; padding: 26px; display: flex; gap: 18px; align-items: flex-start">
+<div style="flex: none; width: 52px; height: 52px; border-radius: 14px; border: 1px solid #2A3346; background: #121826; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9B7BFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h13a1 1 0 0 1 1 1v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"></path><path d="M18 9h2a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2"></path><path d="M8 8h6M8 12h6M8 16h4"></path></svg>
+</div>
+<div>
+<h3 style="margin: 0 0 8px; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 18px">Print</h3>
+<p style="margin: 0; line-height: 1.6; color: #B7BFCE">Annonser i dags- och affärspress och magasin, planerade ihop med de digitala kanalerna för maximal synlighet.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- TJÄNSTER -->
+<section id="tjanster" style="max-width: 1240px; margin: 0 auto; padding: 104px 24px 80px">
+<p style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #35F2C2">// TJÄNSTER</p>
+<h2 style="margin: 0 0 18px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em; max-width: 820px">Hela programmatic-kedjan, köpt och optimerad av specialister.</h2>
+<p style="margin: 0 0 52px; font-size: 18px; line-height: 1.6; color: #B7BFCE; max-width: 680px">Du väljer hur mycket vi ska göra – från fullt managed service till rådgivning för team som köper själva.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px">
+<div data-for="services" style="display: contents"></div>
+</div>
+</section>
+
+<!-- VERTIKALER -->
+<section id="vertikaler" style="position: relative; overflow: hidden; background: #0A0D15; border-top: 1px solid #1A2130; border-bottom: 1px solid #1A2130">
+<div class="an-orb" aria-hidden="true" style="position: absolute; width: 420px; height: 420px; right: -120px; top: -120px; border-radius: 999px; background: #9B7BFF; opacity: .12; filter: blur(120px)"></div>
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 104px 24px">
+<p style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #35F2C2">// VÅRA VERTIKALER</p>
+<h2 style="margin: 0 0 34px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em; max-width: 820px">Specialister på reglerade branscher – programmatic för alla.</h2>
+<div role="tablist" aria-label="Välj bransch" style="display: inline-flex; flex-wrap: wrap; gap: 6px; padding: 6px; background: #121826; border: 1px solid #222B3E; border-radius: 999px; margin-bottom: 44px">
+<div data-for="tabs" style="display: contents"></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 999 1 460px; min-width: 0">
+<h3 style="margin: 0 0 16px; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 26px; line-height: 1.25"><span id="v-headline"></span></h3>
+<p style="margin: 0 0 30px; font-size: 18px; line-height: 1.6; color: #B7BFCE"><span id="v-intro"></span></p>
+<p style="margin: 0 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9AA3B5">VI OPTIMERAR MOT</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px">
+<div data-for="v.kpis" style="display: contents"></div>
+</div>
+<p style="margin: 0 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9AA3B5">TYPISKA ANNONSÖRER</p>
+<p style="margin: 0; line-height: 1.6; color: #D5DAE4"><span id="v-clients"></span></p>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; background: #0E121C; border: 1px solid #222B3E; border-radius: 18px; padding: 28px">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#35F2C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<p style="margin: 0; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 17px">Compliance i varje kampanj</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div data-for="v.compliance" style="display: contents"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 104px 24px">
+<p style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #35F2C2">// SÅ GÅR DET TILL</p>
+<h2 style="margin: 0 0 52px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Från första möte till skalbar kanal.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px">
+<div data-for="steps" style="display: contents"></div>
+</div>
+</section>
+
+<!-- KALKYL -->
+<section id="kalkyl" style="position: relative; overflow: hidden; background: #0A0D15; border-top: 1px solid #1A2130; border-bottom: 1px solid #1A2130">
+<div class="gridbg" aria-hidden="true" style="position: absolute; inset: 0; opacity: .6"></div>
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 380px; min-width: 0">
+<p style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #35F2C2">// RÄKNEEXEMPEL</p>
+<h2 style="margin: 0 0 18px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Vad räcker budgeten till?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B7BFCE">Dra i reglagen för en grov uppskattning. CPM och CTR varierar mycket mellan format och marknad – vi tar fram riktiga siffror för din kampanj på mötet.</p>
+</div>
+<div style="flex: 999 1 520px; min-width: 0; background: rgba(14,18,28,.92); border: 1px solid #222B3E; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 28px">
+<div>
+<div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px">
+<label for="budget" style="font-weight: 600">Mediabudget per månad</label>
+<span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 20px; color: #35F2C2"><span id="o-budget"></span></span>
+</div>
+<input id="budget" type="range" min="25000" max="2000000" step="25000" value="200000">
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px">
+<div>
+<div style="display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px">
+<label for="cpm" style="font-weight: 600">Antaget CPM</label>
+<span style="font-family: 'JetBrains Mono', monospace; color: #D5DAE4"><span id="o-cpm"></span></span>
+</div>
+<input id="cpm" type="range" min="10" max="300" step="5" value="60">
+</div>
+<div>
+<div style="display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px">
+<label for="ctr" style="font-weight: 600">Antagen CTR</label>
+<span style="font-family: 'JetBrains Mono', monospace; color: #D5DAE4"><span id="o-ctr"></span></span>
+</div>
+<input id="ctr" type="range" min="0.05" max="2" step="0.05" value="0.3">
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+<div style="background: #07090F; border: 1px solid #1C2434; border-radius: 16px; padding: 20px">
+<p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3B5">VISNINGAR (CA)</p>
+<p class="glowtxt" style="margin: 0; font-family: Unbounded, sans-serif; font-weight: 600; font-size: 30px; color: #35F2C2"><span id="o-imp"></span></p>
+</div>
+<div style="background: #07090F; border: 1px solid #1C2434; border-radius: 16px; padding: 20px">
+<p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3B5">KLICK (CA)</p>
+<p style="margin: 0; font-family: Unbounded, sans-serif; font-weight: 600; font-size: 30px; color: #9B7BFF"><span id="o-clicks"></span></p>
+</div>
+</div>
+<p style="margin: 0; font-size: 14px; color: #9AA3B5">Räkneexempel, inte en offert. Visningar = budget ÷ CPM × 1 000. Klick = visningar × CTR.</p>
+</div>
+</div>
+</section>
+
+<!-- TEAM -->
+<section id="team" style="max-width: 1240px; margin: 0 auto; padding: 104px 24px">
+<p style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #35F2C2">// TEAMET</p>
+<h2 style="margin: 0 0 18px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em; max-width: 820px">Tre säljare. Över tio år i programmatic.</h2>
+<p style="margin: 0 0 52px; font-size: 18px; line-height: 1.6; color: #B7BFCE; max-width: 680px">Vi har sålt och levererat programmatic i över ett decennium, med djupast erfarenhet inom iGaming och finans. Nu gör vi det i eget bolag – snabbare beslut och kortare väg till den som faktiskt kör din kampanj.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
+<div data-for="team" style="display: contents"></div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section style="background: #0A0D15; border-top: 1px solid #1A2130; border-bottom: 1px solid #1A2130">
+<div style="max-width: 880px; margin: 0 auto; padding: 104px 24px">
+<p style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #35F2C2">// FAQ</p>
+<h2 style="margin: 0 0 34px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Vanliga frågor</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #222B3E">
+<div data-for="faqs" style="display: contents"></div>
+</div>
+</div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" style="max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 340px; min-width: 0">
+<p style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #35F2C2">// KONTAKT</p>
+<h2 style="margin: 0 0 18px; font-family: Unbounded, sans-serif; font-weight: 600; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Låt oss testa en kampanj.</h2>
+<p style="margin: 0 0 30px; font-size: 18px; line-height: 1.6; color: #B7BFCE">Berätta kort om ert mål så återkommer en av oss inom en arbetsdag med förslag på upplägg.</p>
+<p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3B5">E-POST</p>
+<p style="margin: 0 0 20px"><a href="mailto:hej@altrivo.com">hej@altrivo.com</a></p>
+<p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3B5">TELEFON</p>
+<p style="margin: 0; color: #D5DAE4">[TELEFONNUMMER]</p>
+</div>
+<div style="flex: 999 1 520px; min-width: 0; background: #0E121C; border: 1px solid #222B3E; border-radius: 22px; padding: 32px">
+<div id="sent-box" hidden style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start; padding: 24px 0">
+<div style="width: 56px; height: 56px; border-radius: 999px; border: 1px solid #35F2C2; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 28px -6px #35F2C2">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#35F2C2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 24px">Tack, <span id="o-name"></span>!</h3>
+<p style="margin: 0; line-height: 1.6; color: #B7BFCE">Ditt e-postprogram har öppnats med ett färdigt mejl om <span id="o-vlabel"></span> – skicka det så hör vi av oss till <span id="o-email"></span> inom en arbetsdag.</p>
+<button type="button" id="reset-btn" style="margin-top: 8px; background: transparent; border: 1px solid #2E3850; color: #EEF1F7; padding: 12px 20px; border-radius: 999px; font-weight: 600; min-height: 44px">Skicka en ny förfrågan</button>
+</div>
+<form id="kontaktform" style="display: flex; flex-direction: column; gap: 18px" novalidate>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-name" style="font-weight: 600; font-size: 15px">Namn *</label>
+<input id="f-name" class="fld" type="text" autocomplete="name" name="namn">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-email" style="font-weight: 600; font-size: 15px">Jobbmejl *</label>
+<input id="f-email" class="fld" type="email" autocomplete="email" name="epost">
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-company" style="font-weight: 600; font-size: 15px">Bolag</label>
+<input id="f-company" class="fld" type="text" autocomplete="organization" name="bolag">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-vertical" style="font-weight: 600; font-size: 15px">Bransch</label>
+<select id="f-vertical" class="fld" name="bransch">
+<option value="igaming">iGaming</option>
+<option value="finans">Finans</option>
+<option value="annat">Annan bransch</option>
+</select>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-budget" style="font-weight: 600; font-size: 15px">Ungefärlig månadsbudget</label>
+<select id="f-budget" class="fld" name="budget">
+<option value="">Välj</option>
+<option value="lt100">Under 100 000 kr</option>
+<option value="100-500">100 000 – 500 000 kr</option>
+<option value="gt500">Över 500 000 kr</option>
+<option value="vet-ej">Vet inte än</option>
+</select>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-msg" style="font-weight: 600; font-size: 15px">Vad vill ni uppnå?</label>
+<textarea id="f-msg" class="fld" rows="4" name="meddelande" style="resize: vertical"></textarea>
+</div>
+
+<p id="form-error" role="alert" hidden style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #2A1218; border: 1px solid #FF5D73; color: #FFB3BE; font-size: 15px"><span id="o-error"></span></p>
+
+<button type="submit" style="align-self: flex-start; border: none; background: #35F2C2; color: #07090F; padding: 16px 30px; border-radius: 999px; font-weight: 600; font-size: 16px; min-height: 48px; box-shadow: 0 0 32px -6px #35F2C2">Skicka förfrågan</button>
+<p style="margin: 0; font-size: 13px; color: #9AA3B5">Formuläret öppnar ditt e-postprogram med ett färdigt mejl till oss. Vi använder uppgifterna endast för att besvara förfrågan.</p>
+</form>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #05070B; color: #B7BFCE; border-top: 1px solid #1A2130">
+<div style="max-width: 1240px; margin: 0 auto; padding: 52px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: Unbounded, sans-serif; font-weight: 600; font-size: 19px; color: #EEF1F7">Altrivo</span>
+<span style="font-size: 14px">[BOLAGSNAMN AB] · Org.nr [XXXXXX-XXXX]</span>
+<span style="font-size: 14px">[ADRESS], Stockholm</span>
+</div>
+<div style="max-width: 460px; font-size: 14px; line-height: 1.6">
+<p style="margin: 0 0 8px; color: #EEF1F7; font-weight: 600">Ansvarsfull marknadsföring</p>
+<p style="margin: 0">Vi annonserar endast för spelbolag med licens på respektive marknad och riktar aldrig spelreklam till personer under 18 år. Behöver du prata med någon om spel? Kontakta Stödlinjen.</p>
+</div>
+</div>
+</footer>
+
+</div>
+<script>
+(function(){
+  var CONTACT='hej@altrivo.com';
+  var accent='#35F2C2', accent2='#9B7BFF';
+  var T={};
+  T["bids"]=(b,i)=>`<div style="height: 33px; display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; border-bottom: 1px solid #161D2B">
+<span style="width: 7px; height: 7px; border-radius: 999px; background: ${b.color}; flex: none"></span>
+<span style="color: #EEF1F7; white-space: nowrap">${b.fmt} · ${b.vert} · ${b.geo}</span>
+<span style="margin-left: auto; color: ${b.color}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">${b.status}</span>
+</div>`;
+  T["marquee"]=(m,i)=>`<span style="display: inline-flex; align-items: center; gap: 22px; padding: 0 22px; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 22px; color: ${m.color}; white-space: nowrap">${m.label}<span aria-hidden="true" style="color: #2E3850">/</span></span>`;
+  T["services"]=(s,i)=>`<div class="card" style="background: #0E121C; border: 1px solid #1E2535; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #35F2C2">${s.num}</span>
+<h3 style="margin: 0; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 19px; line-height: 1.3">${s.title}</h3>
+<p style="margin: 0; line-height: 1.6; color: #B7BFCE">${s.text}</p>
+</div>`;
+  T["tabs"]=(t,i)=>`${t.selected ? `
+<button type="button" role="tab" aria-selected="true" data-click="pick" data-idx="${i}" style="border: none; background: #35F2C2; color: #07090F; padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: 16px; min-height: 44px; box-shadow: 0 0 24px -6px #35F2C2">${t.label}</button>
+` : ""}
+${t.notSelected ? `
+<button type="button" role="tab" aria-selected="false" data-click="pick" data-idx="${i}" style="border: none; background: transparent; color: #EEF1F7; padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: 16px; min-height: 44px">${t.label}</button>
+` : ""}`;
+  T["v.kpis"]=(k,i)=>`<span style="padding: 9px 15px; border-radius: 999px; border: 1px solid #35F2C2; color: #35F2C2; font-size: 14px; font-weight: 600; background: rgba(53,242,194,.06)">${k}</span>`;
+  T["v.compliance"]=(c,i)=>`<div style="display: flex; gap: 12px; align-items: flex-start">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#35F2C2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg>
+<p style="margin: 0; line-height: 1.5; color: #D5DAE4">${c}</p>
+</div>`;
+  T["steps"]=(st,i)=>`<div class="card" style="background: #0E121C; border: 1px solid #1E2535; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: Unbounded, sans-serif; font-weight: 700; font-size: 40px; color: #9B7BFF">${st.num}</span>
+<h3 style="margin: 0; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 18px">${st.title}</h3>
+<p style="margin: 0; line-height: 1.6; color: #B7BFCE">${st.text}</p>
+</div>`;
+  T["team"]=(p,i)=>`<div class="card" style="background: #0E121C; border: 1px solid #1E2535; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<div style="width: 76px; height: 76px; border-radius: 20px; background: #141A28; border: 1px solid #9B7BFF; display: flex; align-items: center; justify-content: center; font-family: Unbounded, sans-serif; font-weight: 600; font-size: 20px; color: #9B7BFF">${p.initials}</div>
+<div>
+<h3 style="margin: 0 0 4px; font-family: Unbounded, sans-serif; font-weight: 500; font-size: 18px">${p.name}</h3>
+<p style="margin: 0; color: #B7BFCE">${p.role}</p>
+</div>
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9AA3B5">${p.prev}</p>
+</div>`;
+  T["faqs"]=(f,i)=>`<div style="border-bottom: 1px solid #222B3E">
+<button type="button" data-click="toggle" data-idx="${i}" aria-expanded="${f.expanded}" style="width: 100%; background: transparent; border: none; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; text-align: left; color: #EEF1F7; font-size: 18px; font-weight: 600; min-height: 44px">
+<span>${f.q}</span>
+<span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 24px; color: #35F2C2; flex: none">${f.sign}</span>
+</button>
+${f.open ? `
+<p style="margin: 0 0 24px; line-height: 1.65; color: #B7BFCE; max-width: 720px">${f.a}</p>
+` : ""}
+</div>`;
+
+  var DATA={
+    igaming:{headline:'iGaming: casino, sport och lotterier',intro:'Nå spelare som faktiskt konverterar, på licensierade marknader och i miljöer som passar ert varumärke. Vi bygger målgrupper kontextuellt och på förstapartsdata, och optimerar mot första insättning snarare än billiga klick.',kpis:['FTD / första insättning','CPA','Registreringar','ROAS / NGR'],clients:'Onlinecasinon, sportsbooks, poker- och bingosajter, lotterier och affiliates med egen licens.',compliance:['Åldersgräns 18+ och exkludering av målgrupper med låg ålder','Måttfull marknadsföring enligt spellagen','Geo-targeting endast mot marknader där ni har licens','Stödlinjen- och Spelpaus-hänvisningar i kreativen','Blocklistor för känsligt och olämpligt innehåll']},
+    finans:{headline:'Finans: trading, sparande och betalningar',intro:'Nå sparare, tradare och företagare när de läser om ekonomi och marknader. Vi optimerar mot öppnade och verifierade konton och första insättning – och ser till att varningstexter och villkor alltid följer med.',kpis:['Öppnade konton','KYC-godkända kunder','Första insättning','CPA'],clients:'Nätmäklare, tradingplattformar, kryptobörser, fintech, banker, försäkring och betaltjänster.',compliance:['Riskvarningar för CFD, krypto och hävstångsprodukter','Annonsering i linje med Finansinspektionens och ESMA:s regler','Kontextuell placering i ekonomi- och nyhetsmiljöer','Exkludering av målgrupper under 18 år','Transparenta sajtlistor och brand safety-filter']},
+    ovriga:{headline:'Fler branscher: e-handel, resor, B2B och mer',intro:'Samma erfarenhet och arbetssätt fungerar i alla branscher där målet är mätbar tillväxt. Vi sätter upp kampanjer mot försäljning, leads eller räckvidd – och optimerar mot det som faktiskt ger affär.',kpis:['Försäljning / ROAS','Leads','CPA','Räckvidd'],clients:'E-handel, resor, bil, telekom, B2B/SaaS och andra annonsörer som vill växa med programmatic.',compliance:['Brand safety-filter och transparenta sajtlistor','Skydd mot annonsbedrägerier och ogiltig trafik','Branschspecifika regler och varningstexter där det krävs','Hantering av samtycke och förstapartsdata enligt GDPR']}
+  };
+  var win=accent, block='#FF5D73', warn='#FFC857';
+  var bidRows=[['Native','Sportsbook','SE','Vunnet',win],['Display','Nätmäklare','NO','Vunnet',win],['Video','Casino','DE','Ingen licens · stoppad',block],['CTV','Fintech','SE','Vunnet',win],['Display','Krypto','FI','Brand safety · filtrerad',warn],['Native','E-handel','DK','Vunnet',win],['Display','Lotteri','SE','Under 18 · exkluderad',block],['DOOH','Trading','SE','Vunnet',win],['Kontextuellt','Bank','SE','Vunnet',win]].map(function(r){return{fmt:r[0],vert:r[1],geo:r[2],status:r[3],color:r[4]}});
+  var words=[['Casino','#FFC857'],['Trading',accent],['Sportsbook','#EEF1F7'],['Krypto',accent2],['Fintech',accent],['Poker','#FFC857'],['Banker','#EEF1F7'],['Lotteri',accent2],['Försäkring',accent],['E-handel','#EEF1F7'],['Resor',accent2],['B2B','#EEF1F7']].map(function(w){return{label:w[0],color:w[1]}});
+  var S={
+    bids:bidRows.concat(bidRows), marquee:words.concat(words),
+    services:[['01','Managed programmatic','Vi planerar, sätter upp och optimerar kampanjen åt er i ledande DSP:er. Ni får en kontaktperson och veckovisa rapporter.'],['02','Flerkanalsplanering','Display, kontextuellt, native, DOOH, CTV och print i samma plan – vi fördelar budgeten efter vad som ger resultat.'],['03','Kontextuell & cookieless targeting','Målgrupper byggda på innehåll, förstapartsdata och sökordssignaler – robust när tredjepartscookies försvinner.'],['04','Retargeting & lookalikes','Återaktivera besökare som inte konverterade och hitta nya som liknar era bästa kunder.'],['05','Rapport & attribution','Koppling till er tracking och affiliate-/MMP-data, så att vi optimerar mot riktiga intäkter.'],['06','Brand safety & compliance','Sajtlistor, åldersfilter, geo-licenser och varningstexter – kontrollerat innan första visningen.']].map(function(a){return{num:a[0],title:a[1],text:a[2]}}),
+    steps:[['01','Behovsanalys','Mål, marknader, licenser, budget och befintlig tracking. Vi säger ärligt om programmatic passar er.'],['02','Mediaplan & setup','Format, målgrupper, sajtlistor och compliance-krav sätts upp och godkänns av er.'],['03','Lansering & optimering','Testperiod med tydliga mål. Vi optimerar bud, placeringar och kreativ löpande.'],['04','Rapport & skalning','Det som fungerar får mer budget. Det som inte gör det stängs av.']].map(function(a){return{num:a[0],title:a[1],text:a[2]}}),
+    team:[{initials:'S1',name:'[NAMN EFTERNAMN]',role:'Partner & säljare',prev:'Tidigare: Match2One'},{initials:'S2',name:'[NAMN EFTERNAMN]',role:'Partner & säljare',prev:'Tidigare: [TIDIGARE ARBETSGIVARE]'},{initials:'S3',name:'[NAMN EFTERNAMN]',role:'Partner & säljare',prev:'Tidigare: [TIDIGARE ARBETSGIVARE]'}]
+  };
+  var FAQ=[['Jobbar ni bara med iGaming och finans?','Nej. iGaming och finans är där vi har djupast erfarenhet, särskilt av regler och compliance, men vi kör programmatic för alla branscher.'],['Vad är programmatisk annonsering?','Automatiserat köp av annonsplatser i realtid via budgivning. Istället för att boka sajt för sajt köper vi rätt visning till rätt person, på tusentals sajter, och betalar bara för det som matchar målgruppen.'],['Hur stor budget behövs för att testa?','Det beror på marknad och mål. Vi rekommenderar en testperiod som är tillräckligt stor för att ge säkra slutsatser – det räknar vi fram tillsammans på första mötet. [ER MINIMIBUDGET]'],['Annonserar ni för spelbolag utan svensk licens?','Nej. Vi riktar bara kampanjer mot marknader där annonsören har giltig licens.'],['Hur tar ni betalt?','[ER PRISMODELL – t.ex. procent av mediaspend eller fast månadsavgift]. Mediakostnad och avgift redovisas alltid separat.'],['Kan vi se var annonserna visas?','Ja. Ni får sajtlistor och placeringsrapporter, och kan blocka eller prioritera sajter när som helst.']];
+  var state={vertical:'igaming',openFaq:0};
+  function render(name,list){document.querySelectorAll('[data-for="'+name+'"]').forEach(function(el){el.innerHTML=list.map(T[name]).join('')})}
+  function txt(id,v){var e=document.getElementById(id);if(e)e.textContent=v}
+  function renderVertical(){
+    var v=DATA[state.vertical];
+    render('tabs',[['igaming','iGaming'],['finans','Finans'],['ovriga','Fler branscher']].map(function(t){return{label:t[0]===t[0]?t[1]:'',selected:t[0]===state.vertical,notSelected:t[0]!==state.vertical}}));
+    txt('v-headline',v.headline);txt('v-intro',v.intro);txt('v-clients',v.clients);
+    render('v.kpis',v.kpis);render('v.compliance',v.compliance);
+  }
+  function renderFaq(){
+    render('faqs',FAQ.map(function(f,i){var open=state.openFaq===i;return{q:f[0],a:f[1],open:open,expanded:open?'true':'false',sign:open?'−':'+'}}));
+  }
+  var VIDS=['igaming','finans','ovriga'];
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-click]');if(!b)return;
+    var i=+b.getAttribute('data-idx'),act=b.getAttribute('data-click');
+    if(act==='pick'){state.vertical=VIDS[i];renderVertical()}
+    if(act==='toggle'){state.openFaq=state.openFaq===i?-1:i;renderFaq()}
+  });
+  function fmt(n){return Math.round(n).toLocaleString('sv-SE')}
+  function calc(){
+    var b=+document.getElementById('budget').value,c=+document.getElementById('cpm').value,r=+document.getElementById('ctr').value;
+    var imp=b/c*1000;
+    txt('o-budget',fmt(b)+' kr');txt('o-cpm',c+' kr');txt('o-ctr',r.toFixed(2).replace('.',',')+' %');
+    txt('o-imp',fmt(imp));txt('o-clicks',fmt(imp*r/100));
+  }
+  ['budget','cpm','ctr'].forEach(function(id){document.getElementById(id).addEventListener('input',calc)});
+  ['bids','marquee','services','steps','team'].forEach(function(k){render(k,S[k])});
+  renderVertical();renderFaq();calc();
+  // form
+  var form=document.getElementById('kontaktform'),err=document.getElementById('form-error');
+  form.addEventListener('submit',function(e){
+    var n=form.namn.value.trim(),m=form.epost.value.trim(),msg='';
+    if(!n)msg='Fyll i ditt namn.';else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m))msg='Fyll i en giltig e-postadress.';
+    if(msg){e.preventDefault();txt('o-error',msg);err.hidden=false;return}
+    e.preventDefault();
+    var vl=({igaming:'iGaming',finans:'Finans',annat:'Annan bransch'})[form.bransch.value];
+    var body='Namn: '+n+'\nE-post: '+m+'\nBolag: '+form.bolag.value+'\nBransch: '+vl+'\nBudget: '+(form.budget.options[form.budget.selectedIndex].text)+'\n\n'+form.meddelande.value;
+    location.href='mailto:'+CONTACT+'?subject='+encodeURIComponent('Förfrågan från '+n+(form.bolag.value?' ('+form.bolag.value+')':''))+'&body='+encodeURIComponent(body);
+    txt('o-name',n);txt('o-email',m);txt('o-vlabel',({igaming:'iGaming',finans:'finans'})[form.bransch.value]||'programmatic');
+    document.getElementById('sent-box').hidden=false;form.hidden=true;
+  });
+  form.addEventListener('input',function(){err.hidden=true});
+  document.getElementById('reset-btn').addEventListener('click',function(){document.getElementById('sent-box').hidden=true;form.hidden=false;form.reset();});
+})();
+</script>
+</body>
+</html>
